@@ -1,4 +1,4 @@
-class Burger(object):
+class Burger:
     def __init__(self, name, sauce):
         self.name = name
         self.sauce = sauce
