@@ -26,3 +26,6 @@ cd scr/
 ```py
 python3 main.py
 ```
+
+## Templates Latex
+The slides are build with metropolis beamer theme. Available on [CTAN](https://ctan.org/pkg/beamertheme-metropolis) and [GitHub](https://github.com/matze/mtheme)
