@@ -6,6 +6,19 @@
 \usepackage{lmodern}
 \usepackage{color}
 \usepackage{listings}
+\usepackage{svg}
+\usepackage{appendixnumberbeamer}
+\usepackage{hyperref}
+
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 \definecolor{orange}{rgb}{1,0.5,0}
 
 \lstdefinelanguage{python}
@@ -44,8 +57,175 @@ morecomment=[l]{\#},}[keywords,comments,strings,directives]
 \institute{ECAM}
 \begin{document}
   \maketitle
-   % \section{First Section}
-  \begin{frame}{First Frame}
-    % \frametitle{Python and Py-Ramesses}
+
+\section{The Decorator design pattern}
+
+  \begin{frame}{Context and application}
+    \frametitle{Context and application}
+    \begin{itemize}
+      \item Attach \textcolor{red}{features dynamically} \\
+      \textit{Add new functionality to an existing object without altering it's structure.}
+      \item \textcolor{red}{Single responsibility} principle. \\
+      \textit{Divide functionality between classes with unique feature.}
+      \item \textcolor{red}{Embellishment} of a core object by recursively wrapping \\
+      \textit{Basic object is envelloped with these different characteristic.}
+    \end{itemize}
   \end{frame}
+
+  \begin{frame}{Bad Structure}
+    \frametitle{Bad structure}
+    \begin{itemize}
+      \item An base class \textcolor{red}{"Windows"} \\
+      \textit{A new class inherited when a new windows with others options.}
+      \item A lot of \textcolor{red}{repetition}
+      \textit{The classes have lot of resemblance.}
+    \end{itemize}
+    \begin{figure}[!b]
+      \centering
+      \includegraphics[scale=0.3]{bad}
+      \caption{Bad structure}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Good structure}
+    \frametitle{Good structure}
+    \begin{itemize}
+      \item A base class (interface)
+      \item Few concrete class of the base class
+      \item A decorator class
+      \item Few options
+    \end{itemize}
+    \begin{figure}[!b]
+      \centering
+      \includegraphics[scale=0.27]{good}
+      \caption{The Decorator design pattern}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Base class}
+    \frametitle{The base class(1)}
+    \begin{itemize}
+      \item The \textcolor{red}{basic representation} of an object \\
+      \textit{Without the characteristics of the options.}
+    \end{itemize}
+    \begin{figure}[!b]
+      \centering
+      \includegraphics[scale=0.4]{Base}
+      \caption{The base class}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Base class}
+    \frametitle{The base class(2)}
+    \lstinputlisting[firstline=0,lastline=11]{../scr/decorator.py}
+  \end{frame}
+
+  \begin{frame}{Concrete class}
+    \frametitle{The concrete class(1)}
+    \begin{itemize}
+      \item The representation of a \textcolor{red}{concrete object} \\
+      \textit{Inheritance of the basic object.}
+      \item \textcolor{red}{Specification} of the main class \textbf{Burger} \\
+      \textit{Object with it's own characteristics.}
+    \end{itemize}
+    \begin{figure}[!b]
+      \centering
+      \includegraphics[scale=0.4]{concrete}
+      \caption{The concretes classes}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Concrete class}
+    \frametitle{The concrete class(2)}
+    \lstinputlisting[firstline=14,lastline=30]{../scr/decorator.py}
+  \end{frame}
+
+  \begin{frame}{Decorator class}
+    \frametitle{The decorator class(1)}
+    \begin{itemize}
+      \item An \textcolor{red}{abstract class} of the basic object \textbf{Burger} \\
+      \textit{Encapsulation of the original object inside an abstract wrapper interface.}
+      \item Giving \textcolor{red}{the abilities} to specify \\
+      \textit{Abstract class to attach a combination of features at concrete class.}
+
+    \end{itemize}
+    \begin{figure}[!b]
+      \centering
+      \includegraphics[scale=0.27]{Decorator}
+      \caption{The decorator class}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Decorator class}
+    \frametitle{The decorator class(2)}
+    \lstinputlisting[firstline=33,lastline=47]{../scr/decorator.py}
+  \end{frame}
+
+  \begin{frame}{Options classes}
+    \frametitle{The options classes(1)}
+    \begin{itemize}
+      \item The features to \textcolor{red}{wrap} a concrete object\\
+      \textit{Inheritance of the abstract class decorator.}
+    \end{itemize}
+    \begin{figure}[!b]
+      \centering
+      \includegraphics[scale=0.4]{options}
+      \caption{The options classes}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Options classes}
+    \frametitle{The options classes(2)}
+    \lstinputlisting[firstline=49,lastline=68]{../scr/decorator.py}
+  \end{frame}
+
+  \begin{frame}{Example}
+    \frametitle{Example}
+    \lstinputlisting[firstline=77,lastline=83]{../scr/decorator.py}
+    \begin{itemize}
+      \item CheeseBurger sauce Ketchup
+      \item CheeseBurger sauce Ketchup with tomato
+      \item FishBurger sauce Tartar with salad tomato fries
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Conclusion}
+    \frametitle{Conclusion}
+    The decorator pattern used when:
+    \begin{itemize}
+      \item A base object have \textcolor{red}{multiple derivates} \\
+      \textit{A \textbf{Burger} may be a \textbf{CheeseBurger} or \textbf{FishBurger}.}
+      \item Derivates may be wrap with \textcolor{red}{same or differentes features} \\
+      \textit{\textbf{CheeseBurger} with tomato or \textbf{FishBurger} with salad and tomato.}
+      \item Decorator pattern \textcolor{red}{allows to add} new derivates or options easily \\
+      \textit{A new concrete class\textbf{VegetarianBurger} or a new option \textbf{pickels}.}
+    \end{itemize}
+  \end{frame}
+
+  \appendix
+
+  \begin{frame}{Enjoy!}
+    The application burger is available on GitHub:
+    \begin{itemize}
+      \item \url{https://github.com/JonathanPetit/Decorator-design-pattern}
+      \item The manual is the README.md
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[allowframebreaks]{Bibliography}
+    \begin{thebibliography}{9}
+      \setbeamertemplate{bibliography item}[online]
+      \bibitem{A} \url{https://sourcemaking.com/design_patterns/decorator}
+      \setbeamertemplate{bibliography item}[online]
+      \bibitem{A} \url{https://en.wikipedia.org/wiki/Decorator_pattern}
+      \setbeamertemplate{bibliography item}[online]
+      \bibitem{A} \url{https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm}
+      \setbeamertemplate{bibliography item}[book]
+      \bibitem{B} Architecture logiciel slides - Mr. Comb\'efis
+      \setbeamertemplate{bibliography item}[online]
+      \bibitem{B} \url{https://github.com/matze/mtheme}
+
+    \end{thebibliography}
+  \end{frame}
+
 \end{document}

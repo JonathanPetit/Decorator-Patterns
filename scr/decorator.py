@@ -72,3 +72,12 @@ class Fries(BurgerDecorator):
         self.supp = "fries"
         super().__init__(burger, self.supp)
         self.burger.element.append((self.supp, 0.4))
+
+
+if __name__ == '__main__':
+    cheese_burger = CheeseBurger("Ketchup")
+    print(cheese_burger)
+    cheese_burger_with_tomato = Tomato(cheese_burger)
+    print(cheese_burger_with_tomato)
+    fish_burger = Fries(Tomato(Salad(FishBurger("Tartar"))))
+    print(fish_burger)
