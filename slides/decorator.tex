@@ -64,25 +64,25 @@ morecomment=[l]{\#},}[keywords,comments,strings,directives]
     \frametitle{Context and application}
     \begin{itemize}
       \item Attach \textcolor{red}{features dynamically} \\
-      \textit{Add new functionality to an existing object without altering it's structure.}
+      \textit{Add new functionality to an existing object without altering its structure.}
       \item \textcolor{red}{Single responsibility} principle. \\
       \textit{Divide functionality between classes with unique feature.}
       \item \textcolor{red}{Embellishment} of a core object by recursively wrapping \\
-      \textit{Basic object is envelloped with these different characteristic.}
+      \textit{Basic object is envelloped with its different characteristics.}
     \end{itemize}
   \end{frame}
 
   \begin{frame}{Bad Structure}
     \frametitle{Bad structure}
     \begin{itemize}
-      \item An base class \textcolor{red}{"Windows"} \\
-      \textit{A new class inherited when a new windows with others options.}
-      \item A lot of \textcolor{red}{repetition}
-      \textit{The classes have lot of resemblance.}
+      \item A base class \textcolor{red}{"Windows"} \\
+      \textit{A new class inherited when a new windows have others options.}
+      \item A lot of \textcolor{red}{repetition} \\
+      \textit{The classes have a lot of resemblance.}
     \end{itemize}
     \begin{figure}[!b]
       \centering
-      \includegraphics[scale=0.3]{bad}
+      \includegraphics[scale=0.25]{bad}
       \caption{Bad structure}
     \end{figure}
   \end{frame}
@@ -91,7 +91,7 @@ morecomment=[l]{\#},}[keywords,comments,strings,directives]
     \frametitle{The solution structure}
     \begin{itemize}
       \item A base class (interface)
-      \item Few concrete class of the base class
+      \item Few concretes classes of the base class
       \item A decorator class
       \item Few options
     \end{itemize}
@@ -126,7 +126,7 @@ morecomment=[l]{\#},}[keywords,comments,strings,directives]
       \item The representation of a \textcolor{red}{concrete object} \\
       \textit{Inheritance of the basic object.}
       \item \textcolor{red}{Specification} of the main class \textbf{Burger} \\
-      \textit{Object with it's own characteristics.}
+      \textit{Object with its own characteristics.}
     \end{itemize}
     \begin{figure}[!b]
       \centering
@@ -202,6 +202,24 @@ morecomment=[l]{\#},}[keywords,comments,strings,directives]
     \end{figure}
   \end{frame}
 
+  \begin{frame}{Application}
+    \frametitle{Application}
+    \begin{itemize}
+      \item Output of the little application (main.py)\\
+    \end{itemize}
+      \begin{figure}
+        \includegraphics[width=3cm, height=2cm]{first}
+        \includegraphics[width=3cm, height=2cm]{second}
+        \caption{The menus of main.py (cf: GitHub)}
+      \end{figure}
+      \begin{figure}[!b]
+        \centering
+        \includegraphics[scale=0.4]{third}
+        \caption{The ouput of main.py (cf: GitHub)}
+      \end{figure}
+
+  \end{frame}
+
   \begin{frame}{Conclusion}
     \frametitle{Conclusion}
     The decorator pattern used when:
@@ -211,7 +229,7 @@ morecomment=[l]{\#},}[keywords,comments,strings,directives]
       \item Derivates may be wrap with \textcolor{red}{same or differentes features} \\
       \textit{\textbf{CheeseBurger} with tomato or \textbf{FishBurger} with salad and tomato.}
       \item Decorator pattern \textcolor{red}{allows to add} new derivates or options easily \\
-      \textit{A new concrete class\textbf{VegetarianBurger} or a new option \textbf{pickels}.}
+      \textit{A new concrete class \textbf{VegetarianBurger} or a new option \textbf{pickels}.}
     \end{itemize}
   \end{frame}
 
