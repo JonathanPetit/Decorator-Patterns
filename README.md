@@ -3,8 +3,11 @@ School assignement on the decorator design patten (slides and codes)
 
 ## Repository
 1. ***slide/***
+
 The slides folder contains several documents for the little presentation.
-1. ***src/***
+
+2. ***src/***
+
 The code folder contains a little application for the demonstration of one example use
 of decorator design pattern
 
@@ -14,6 +17,7 @@ of decorator design pattern
 git clone https://github.com/JonathanPetit/Decorator-design-pattern.git
 ```
 or download zip.
+
 2. ***Floder***
 ```py
 cd scr/
@@ -22,3 +26,6 @@ cd scr/
 ```py
 python3 main.py
 ```
+
+## Templates Latex
+The slides are build with metropolis beamer theme. Available on [CTAN](https://ctan.org/pkg/beamertheme-metropolis) and [GitHub](https://github.com/matze/mtheme)
